@@ -1,7 +1,7 @@
 from flask import Flask, redirect, request, flash, session
 from flask.templating import render_template
 #from editItemFrom import EditItemForm
-from model import db, Todoitem
+from model.models import db, Sport
 #from addItemForm import AddItemForm
 #from deleteItemForm import DeleteItemForm
 
