@@ -1,0 +1,47 @@
+{%extends 'base.html'%}
+
+{%block body%}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  {% for message in messages %}
+  {{ message }}
+  {% endfor %}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+{% endwith %}
+
+
+<h2>All Sportart</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for sportart in sportart %}
+    <tr>
+      <td>{{sportart.Sportart_ID}}</td>
+      <td>{{sportart.Sportart}}</td>
+      <td>
+        <a class="btn btn-outline-secondary" href="/sportart/edit?Sportart_ID={{sportart.Sportart_ID}}">✏️</a>
+        <form action="/sportart/delete" method="post" style="display: inline;">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <input type="hidden" name="Sportart_ID" id="Sportart_ID" value="{{sportart.Sportart_ID}}">
+          <a class="btn btn-outline-secondary" href="#" onclick="deleteSportart(this); return false;">🗑️</a>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+
+
+  </tbody>
+</table>
+
+{%endblock%}

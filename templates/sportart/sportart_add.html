@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+
+{%block body%}
+
+<h2>Add new Sportart</h2>
+
+<form method="post">
+    {{form.csrf_token}}
+
+    <!-- {{ form.errors }} -->
+
+    <div class="mb-3">
+        <label for="Sportart_ID" class="form-label">ID</label>
+        {{form.Sportart_ID(class_="form-control")}}
+    </div>
+
+    <div class="mb-3">
+        <label for="Sportart" class="form-label">Name</label>
+        {{form.Sportart(class_="form-control")}}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{%endblock%}
