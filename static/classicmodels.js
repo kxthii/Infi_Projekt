@@ -1,4 +1,4 @@
-function sportartProduct(element) {
+function deleteSportart(element) {
 
     if(window.confirm("Wollen Sie das Item wirklich löschen"))
     {

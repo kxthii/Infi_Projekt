@@ -68,6 +68,7 @@ def sportart_edit():
 def deleteSportart():
     delete_item_form_obj = SportartDeleteForm()
     if delete_item_form_obj.validate_on_submit():
+        #print("7")
 
         sportart_code_to_delete = delete_item_form_obj.Sportart_ID.data
         sportart_to_delete = db.session.query(Sportart).filter(Sportart.Sportart_ID == sportart_code_to_delete)

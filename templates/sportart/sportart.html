@@ -16,6 +16,8 @@
 
 <h2>All Sportart</h2>
 
+<a href="/sportart/add" class="btn btn-outline-success">➕ Sportart Hinzufügen</a>
+
 <table class="table">
   <thead>
     <tr>
@@ -31,11 +33,12 @@
       <td>{{sportart.Sportart}}</td>
       <td>
         <a class="btn btn-outline-secondary" href="/sportart/edit?Sportart_ID={{sportart.Sportart_ID}}">✏️</a>
-        <form action="/sportart/delete" method="post" style="display: inline;">
-          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+        <form method="post" action="/sportart/delete">
+          <input type="hidden"name="csrf_token" value="{{ csrf_token() }}">
           <input type="hidden" name="Sportart_ID" id="Sportart_ID" value="{{sportart.Sportart_ID}}">
-          <a class="btn btn-outline-secondary" href="#" onclick="deleteSportart(this); return false;">🗑️</a>
-        </form>
+          <button class="btn btn-outline-secondary" type="button" onclick="deleteSportart(this); return false;">🗑️</button>
+        </form>  
       </td>
     </tr>
     {% endfor %}
