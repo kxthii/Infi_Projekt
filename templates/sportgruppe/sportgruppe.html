@@ -1,0 +1,57 @@
+{%extends 'base.html'%}
+
+{%block body%}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  {% for message in messages %}
+  {{ message }}
+  {% endfor %}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+{% endwith %}
+
+
+<h2>All Sportgruppe</h2>
+
+<a href="/sportgruppe/add" class="btn btn-outline-success">➕ Sportgruppe Hinzufügen</a>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Gruppenname</th>
+      <th scope="col">Gründungsdatum</th>
+      <th scope="col">Maskotchen</th>
+  
+
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for sportgruppe in sportgruppe %}
+    <tr>
+      <td>{{sportgruppe.Sportgruppen_ID}}</td>
+      <td>{{sportgruppe.Gruppenname}}</td>
+      <td>{{sportgruppe.Gruendungsdatum}}</td>
+      <td>{{sportgruppe.Maskotchen}}</td>
+      
+      <td>
+        <a class="btn btn-outline-secondary" href="/sportgruppe/edit?Sportgruppen_ID={{sportgruppe.Sportgruppen_ID}}">✏️</a>
+
+        <form method="post" action="/sportgruppe/delete">
+          <input type="hidden"name="csrf_token" value="{{ csrf_token() }}">
+          <input type="hidden" name="Sportgruppen_ID" id="Sportgruppen_ID" value="{{sportgruppe.Sportgruppen_ID}}">
+          <button class="btn btn-outline-secondary" type="button" onclick="deleteSportgruppe(this); return false;">🗑️</button>
+        </form>  
+      </td> 
+    </tr>
+    {% endfor %}
+
+
+  </tbody>
+</table>
+
+{%endblock%}

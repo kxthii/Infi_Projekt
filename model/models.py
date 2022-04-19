@@ -19,7 +19,7 @@ class Sportgruppe(db.Model):
 
     Sportgruppen_ID = db.Column(db.Integer, primary_key=True, unique=True)
     Gruppenname = db.Column(db.String(64))
-    Gründungsdatum = db.Column(db.Date)
+    Gruendungsdatum = db.Column(db.Date)
     Maskotchen = db.Column(db.String(64))
     Sportart_ID = db.Column(db.ForeignKey('sportart.Sportart_ID'), index=True)
 

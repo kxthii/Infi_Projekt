@@ -5,7 +5,7 @@ import sqlalchemy
 from model.models import Sportart, db
 from forms.SportartDeleteForm import SportartDeleteForm
 from forms.SportartForm import SportartForm
-
+from random import randint, random
 
 sportart_blueprint = Blueprint('sportart_blueprint', __name__)
 
@@ -25,8 +25,8 @@ def sportart_add():
         
         if add_sportart_form.validate_on_submit():
             new_sportart = Sportart()
-
-            new_sportart.Sportart_ID = add_sportart_form.Sportart_ID.data
+            
+            #new_sportart.Sportart_ID = add_sportart_form.Sportart.data
             new_sportart.Sportart = add_sportart_form.Sportart.data
         
             db.session.add(new_sportart)

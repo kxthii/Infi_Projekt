@@ -1,0 +1,37 @@
+{%extends 'base.html'%}
+
+{%block body%}
+
+<h2>Edit Sportgruppe</h2>
+
+<form method="post">
+    {{form.csrf_token}}
+
+    <!-- {{ form.errors }} -->
+
+    <div class="mb-3">
+        <label for="Sportgruppen_ID" class="form-label">ID</label>
+        {{form.Sportgruppen_ID(class_="form-control",readonly=True)}}
+    </div>
+
+    <div class="mb-3">
+        <label for="Gruppenname" class="form-label">Gruppenname</label>
+        {{form.Gruppenname(class_="form-control")}}
+    </div>
+
+    <div class="mb-3">
+        <label for="Gruendungsdatum" class="form-label">Gründungsdatum</label>
+        {{form.Gruendungsdatum(class_="form-control")}}
+    </div>
+
+    <div class="mb-3">
+        <label for="Maskotchen" class="form-label">Maskotchen</label>
+        {{form.Maskotchen(class_="form-control")}}
+    </div>
+
+
+
+    <button type="submit" class="btn btn-primary">EDIT</button>
+</form>
+
+{%endblock%}
