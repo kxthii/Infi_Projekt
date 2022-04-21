@@ -6,7 +6,7 @@ from wtforms.fields import DecimalField, SelectField
 from wtforms import validators
 
 class SportartForm(FlaskForm):
-    Sportart_ID = HiddenField("Sportart_ID")
+    Sportart_ID = StringField("Sportart_ID")
     Sportart = StringField("Sportart",[validators.InputRequired()])
     
     
