@@ -1,0 +1,40 @@
+{%extends 'base.html'%}
+
+{%block body%}
+
+<h2>Add new Sportler</h2>
+
+<form method="post">
+    {{form.csrf_token}}
+
+    <!-- {{ form.errors }} -->
+
+    <div class="mb-3">
+        <label for="Sportler_ID" class="form-label">ID</label>
+        {{form.Sportler_ID(class_="form-control",readonly=True)}}
+    </div>
+
+    <div class="mb-3">
+        <label for="Sportler" class="form-label">Geburtsdatum</label>
+        {{form.Geburtsdatum(class_="form-control")}}
+    </div>
+
+    <div class="mb-3">
+        <label for="Sportler" class="form-label">Vorname</label>
+        {{form.Vorname(class_="form-control")}}
+    </div>
+
+    <div class="mb-3">
+        <label for="Sportler" class="form-label">Nachname</label>
+        {{form.Nachname(class_="form-control")}}
+    </div>
+
+    <div class="mb-3">
+        <label for="Sportler" class="form-label">Größe</label>
+        {{form.Größe(class_="form-control")}}
+    </div>
+
+    <button type="submit" class="btn btn-primary">ADD</button>
+</form>
+
+{%endblock%}

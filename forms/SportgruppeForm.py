@@ -5,7 +5,7 @@ from wtforms.fields.simple import BooleanField, StringField, TextAreaField, Hidd
 from wtforms.fields import DecimalField, SelectField
 from wtforms import validators
 
-sportart = Sportart.Sportart
+#sportart = Sportart.Sportart
 class SportgruppeForm(FlaskForm):
     Sportgruppen_ID = StringField("Sportgruppen_ID")
     Gruppenname = TextAreaField("Gruppenname",[validators.InputRequired()])

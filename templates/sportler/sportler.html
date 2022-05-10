@@ -1,0 +1,56 @@
+{%extends 'base.html'%}
+
+{%block body%}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  {% for message in messages %}
+  {{ message }}
+  {% endfor %}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+{% endwith %}
+
+
+<h2>All Sportler</h2>
+
+<a href="/sportler/add" class="btn btn-outline-success">➕ Sportler Hinzufügen</a>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Geburtsdatum</th>
+      <th scope="col">Vorname</th>
+      <th scope="col">Nachname</th>
+      <th scope="col">Größe</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for sportler in sportler %}
+    <tr>
+      <td>{{sportler.Sportler_ID}}</td>
+      <td>{{sportler.Geburtsdatum}}</td>
+      <td>{{sportler.Vorname}}</td>
+      <td>{{sportler.Nachname}}</td>
+      <td>{{sportler.Größe}}</td>
+      <td>
+        <a class="btn btn-outline-secondary" href="/sportler/edit?Sportler_ID={{sportler.Sportler_ID}}">✏️</a>
+
+        <form method="post" action="/sportler/delete">
+          <input type="hidden"name="csrf_token" value="{{ csrf_token() }}">
+          <input type="hidden" name="Sportler_ID" id="Sportler_ID" value="{{sportler.Sportler_ID}}">
+          <button class="btn btn-outline-secondary" type="button" onclick="deleteSportler(this); return false;">🗑️</button>
+        </form>  
+      </td>
+    </tr>
+    {% endfor %}
+
+
+  </tbody>
+</table>
+
+{%endblock%}
