@@ -18,7 +18,7 @@ def sportler():
 
 @sportler_blueprint.route("/sportler/add", methods=["GET", "POST"])
 def sportler_add():
-    session: sqlalchemy.orm.scoping.scoped_session = db.session
+    sqlalchemy.orm.scoping.scoped_session = db.session
 
     add_sportler_form = SportlerForm()
     if request.method == 'POST':

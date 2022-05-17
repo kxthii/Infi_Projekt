@@ -20,7 +20,7 @@ def sportgruppe():
 
 @sportgruppe_blueprint.route("/sportgruppe/add", methods=["GET", "POST"])
 def sportgruppe_add():
-    session: sqlalchemy.orm.scoping.scoped_session = db.session
+    sqlalchemy.orm.scoping.scoped_session = db.session
 
     add_sportgruppe_form = SportgruppeForm()
     if request.method == 'POST':

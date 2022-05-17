@@ -18,7 +18,7 @@ def sportart():
 
 @sportart_blueprint.route("/sportart/add", methods=["GET", "POST"])
 def sportart_add():
-    session: sqlalchemy.orm.scoping.scoped_session = db.session
+    sqlalchemy.orm.scoping.scoped_session = db.session
 
     add_sportart_form = SportartForm()
 
