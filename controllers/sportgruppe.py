@@ -37,7 +37,7 @@ def sportgruppe_add():
             new_sportgruppe.Gruendungsdatum = add_sportgruppe_form.Gruendungsdatum.data
             new_sportgruppe.Maskotchen = add_sportgruppe_form.Maskotchen.data
             new_sportgruppe.Sportart_ID = add_sportgruppe_form.Sportart_ID.data
-        
+                    
             db.session.add(new_sportgruppe)
             db.session.commit()
 
