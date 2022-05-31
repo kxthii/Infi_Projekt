@@ -2,7 +2,7 @@ from flask import redirect, request, flash
 from flask.templating import render_template
 from flask import Blueprint
 import sqlalchemy
-from model.models import Sportgruppe, db
+from model.models import Sportart, Sportgruppe, db
 from forms.SportgruppeDeleteForm import SportgruppeDeleteForm
 from forms.SportgruppeForm import SportgruppeForm
 
@@ -21,8 +21,13 @@ def sportgruppe():
 @sportgruppe_blueprint.route("/sportgruppe/add", methods=["GET", "POST"])
 def sportgruppe_add():
     sqlalchemy.orm.scoping.scoped_session = db.session
-
+    session: sqlalchemy.orm.scoping.scoped_session = db.session
     add_sportgruppe_form = SportgruppeForm()
+
+    sportart_test = session.query(Sportart).order_by(Sportart.Sportart_ID).all()
+    sportart_list = [(s.Sportart_ID, s.Sportart) for s in sportart_test]
+    add_sportgruppe_form.Sportart_ID.choices = sportart_list
+
     if request.method == 'POST':
 
         if add_sportgruppe_form.validate_on_submit():
@@ -31,8 +36,8 @@ def sportgruppe_add():
             new_sportgruppe.Gruppenname = add_sportgruppe_form.Gruppenname.data
             new_sportgruppe.Gruendungsdatum = add_sportgruppe_form.Gruendungsdatum.data
             new_sportgruppe.Maskotchen = add_sportgruppe_form.Maskotchen.data
-            new_sportgruppe.Sportart_ID = add_sportgruppe_form.Sportart_ID
-
+            new_sportgruppe.Sportart_ID = add_sportgruppe_form.Sportart_ID.data
+        
             db.session.add(new_sportgruppe)
             db.session.commit()
 
@@ -51,6 +56,10 @@ def sportgruppe_edit():
     Sportgruppen_ID = request.args["Sportgruppen_ID"]
     sportgruppe_to_edit = session.query(Sportgruppe).filter(
         Sportgruppe.Sportgruppen_ID == Sportgruppen_ID).first()
+
+    sportart_test = session.query(Sportart).order_by(Sportart.Sportart_ID).all()
+    sportart_list = [(s.Sportart_ID, s.Sportart) for s in sportart_test]
+    edit_sportgruppe_form.Sportart_ID.choices = sportart_list
 
     if request.method == "POST":
         if edit_sportgruppe_form.validate_on_submit():
