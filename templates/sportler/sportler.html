@@ -16,8 +16,7 @@
 
 <h2>All Sportler</h2>
 
-<a href="/sportler/add" class="btn btn-outline-success">➕ Sportler Hinzufügen</a>
-<a href="/" class="btn btn-outline-success"> 🔙 </a>
+<a href="/sportler/add" class="btn btn-outline-secondary" style="width: 100%">➕ Sportler Hinzufügen</a>
 
 <table class="table">
   <thead>
@@ -42,7 +41,7 @@
     
       <td>
         <a class="btn btn-outline-secondary" href="/sportler/edit?Sportler_ID={{sportler.Sportler_ID}}">✏️</a>
-
+      
         <form method="post" action="/sportler/delete">
           <input type="hidden"name="csrf_token" value="{{ csrf_token() }}">
           <input type="hidden" name="Sportler_ID" id="Sportler_ID" value="{{sportler.Sportler_ID}}">
