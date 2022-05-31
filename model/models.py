@@ -5,13 +5,11 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 
-
 class Sportart(db.Model):
     __tablename__ = 'sportart'
 
     Sportart_ID = db.Column(db.Integer, primary_key=True, unique=True)
     Sportart = db.Column(db.String(60))
-
 
 
 class Sportgruppe(db.Model):
@@ -26,7 +24,6 @@ class Sportgruppe(db.Model):
     sportart = db.relationship('Sportart', primaryjoin='Sportgruppe.Sportart_ID == Sportart.Sportart_ID', backref='sportgruppes')
 
 
-
 class SportgruppeSportler(db.Model):
     __tablename__ = 'sportgruppe_sportler'
 
@@ -36,7 +33,6 @@ class SportgruppeSportler(db.Model):
 
     sportgruppe = db.relationship('Sportgruppe', primaryjoin='SportgruppeSportler.Sportgruppen_ID == Sportgruppe.Sportgruppen_ID', backref='sportgruppe_sportlers')
     sportler = db.relationship('Sportler', primaryjoin='SportgruppeSportler.Sportler_ID == Sportler.Sportler_ID', backref='sportgruppe_sportlers')
-
 
 
 class Sportler(db.Model):

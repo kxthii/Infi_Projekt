@@ -2,7 +2,7 @@
 
 {%block body%}
 
-<h2>Add new Sportler</h2>
+<h2>Fügen Sie einen neuen Sportler hinzu:</h2>
 
 <form method="post">
     {{form.csrf_token}}
@@ -35,6 +35,8 @@
     </div>
 
     <button type="submit" class="btn btn-primary">ADD</button>
+    <button type="nav-item" href="/sportler"> 🔙 </button>
+    
 </form>
 
 {%endblock%}

@@ -2,7 +2,7 @@
 
 {%block body%}
 
-<h2>Edit Sportler</h2>
+<h2>Sportler bearbeiten:</h2>
 
 <form method="post">
     {{form.csrf_token}}
@@ -35,6 +35,7 @@
     </div>
 
     <button type="submit" class="btn btn-primary">EDIT</button>
+    <button type="nav-item" href="/sportler"> 🔙 </button>
 </form>
 
 {%endblock%}

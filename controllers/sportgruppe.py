@@ -31,6 +31,7 @@ def sportgruppe_add():
             new_sportgruppe.Gruppenname = add_sportgruppe_form.Gruppenname.data
             new_sportgruppe.Gruendungsdatum = add_sportgruppe_form.Gruendungsdatum.data
             new_sportgruppe.Maskotchen = add_sportgruppe_form.Maskotchen.data
+            new_sportgruppe.Sportart_ID = add_sportgruppe_form.Sportart_ID
 
             db.session.add(new_sportgruppe)
             db.session.commit()
@@ -60,6 +61,7 @@ def sportgruppe_edit():
             sportgruppe_to_edit.Gruppenname = edit_sportgruppe_form.Gruppenname.data
             sportgruppe_to_edit.Gruendungsdatum = edit_sportgruppe_form.Gruendungsdatum.data
             sportgruppe_to_edit.Maskotchen = edit_sportgruppe_form.Maskotchen.data
+            sportgruppe_to_edit.Sportart_ID = edit_sportgruppe_form.Sportart_ID.data
 
             db.session.commit()
         return redirect("/sportgruppe")
@@ -68,6 +70,7 @@ def sportgruppe_edit():
         edit_sportgruppe_form.Gruppenname.data = sportgruppe_to_edit.Gruppenname
         edit_sportgruppe_form.Gruendungsdatum.data = sportgruppe_to_edit.Gruendungsdatum
         edit_sportgruppe_form.Maskotchen.data = sportgruppe_to_edit.Maskotchen
+        edit_sportgruppe_form.Sportart_ID.data = sportgruppe_to_edit.Sportart_ID
 
         return render_template("sportgruppe/sportgruppe_edit.html", form=edit_sportgruppe_form)
 
@@ -87,6 +90,6 @@ def deleteSportgruppe():
     else:
         print("Fatal Error")
 
-    flash(f"sportgruppe with id {sportgruppe_code_to_delete} has been deleted")
+    flash(f"Die Sportgruppe mit der ID {sportgruppe_code_to_delete} wurde gelöscht! :)")
 
     return redirect("/sportgruppe")

@@ -2,7 +2,7 @@
 
 {%block body%}
 
-<h2>Edit Sportgruppe</h2>
+<h2>Fügen Sie eine neue Sportgruppe hinzu:</h2>
 
 <form method="post">
     {{form.csrf_token}}
@@ -29,12 +29,16 @@
         {{form.Maskotchen(class_="form-control")}}
     </div>
 
-    
+    <div class="mb-3">
+        <label for="Sportart_ID" class="form-label">Sportart</label>
+        {{form.Sportart_ID(class_="form-control")}}
+    </div>
 
 
     
 
     <button type="submit" class="btn btn-primary">ADD</button>
+    <button type="nav-item" href="/sportgruppe"> 🔙 </button>
 </form>
 
 {%endblock%}
