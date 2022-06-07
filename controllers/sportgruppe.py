@@ -24,7 +24,8 @@ def sportgruppe_add():
     session: sqlalchemy.orm.scoping.scoped_session = db.session
     add_sportgruppe_form = SportgruppeForm()
 
-    sportart_test = session.query(Sportart).order_by(Sportart.Sportart_ID).all()
+    sportart_test = session.query(Sportart).order_by(
+        Sportart.Sportart_ID).all()
     sportart_list = [(s.Sportart_ID, s.Sportart) for s in sportart_test]
     add_sportgruppe_form.Sportart_ID.choices = sportart_list
 
@@ -37,7 +38,7 @@ def sportgruppe_add():
             new_sportgruppe.Gruendungsdatum = add_sportgruppe_form.Gruendungsdatum.data
             new_sportgruppe.Maskotchen = add_sportgruppe_form.Maskotchen.data
             new_sportgruppe.Sportart_ID = add_sportgruppe_form.Sportart_ID.data
-                    
+
             db.session.add(new_sportgruppe)
             db.session.commit()
 
@@ -57,7 +58,8 @@ def sportgruppe_edit():
     sportgruppe_to_edit = session.query(Sportgruppe).filter(
         Sportgruppe.Sportgruppen_ID == Sportgruppen_ID).first()
 
-    sportart_test = session.query(Sportart).order_by(Sportart.Sportart_ID).all()
+    sportart_test = session.query(Sportart).order_by(
+        Sportart.Sportart_ID).all()
     sportart_list = [(s.Sportart_ID, s.Sportart) for s in sportart_test]
     edit_sportgruppe_form.Sportart_ID.choices = sportart_list
 
@@ -99,6 +101,7 @@ def deleteSportgruppe():
     else:
         print("Fatal Error")
 
-    flash(f"Die Sportgruppe mit der ID {sportgruppe_code_to_delete} wurde gelöscht! :)")
+    flash(
+        f"Die Sportgruppe mit der ID {sportgruppe_code_to_delete} wurde gelöscht! :)")
 
     return redirect("/sportgruppe")
