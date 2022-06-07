@@ -11,32 +11,23 @@
 </head>
 
 <body>
+
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <li class="nav-item">
             <a class="nav-link" href="/">🔙</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="/sportart"> 🏀 Sportarten</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="/sportgruppe"> 👫🏻 Sportgruppe</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="/sportler"> 🚣 Sportler</a>
-          </li>
-
-
+            <a class="nav-link" href="/sportart">🏀 Sportarten</a>
+            <a class="nav-link" href="/sportgruppe">👫🏻 Sportgruppe</a>
+            <a class="nav-link" href="/sportler">🚣 Sportler</a>
         </div>
-      </div>
+        </div>
     </div>
   </nav>
-
 
   {%block body%} {%endblock%}
 
@@ -48,7 +39,8 @@
 </body>
 
 <style>
-  table, h2 {
+
+  table, h2, form {
     width: 100%;
     color: white;
   }
