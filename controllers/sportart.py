@@ -74,6 +74,6 @@ def deleteSportart():
     else:
 
         print("Fatal Error")
-    flash(f"sportart with id {sportart_code_to_delete} has been deleted")
+    flash(f"Die Sportart mit der ID {sportart_code_to_delete} wurde gelöscht! :)")
 
     return redirect("/sportart")

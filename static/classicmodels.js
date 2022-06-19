@@ -1,6 +1,6 @@
 function deleteSportart(element) {
 
-    if(window.confirm("Wollen Sie das Item wirklich löschen"))
+    if(window.confirm("Wollen Sie das Item wirklich löschen?"))
     {
         element.parentElement.submit();
     }
@@ -9,7 +9,7 @@ function deleteSportart(element) {
 
 function deleteSportgruppe(element) {
 
-    if(window.confirm("Wollen Sie das Item wirklich löschen"))
+    if(window.confirm("Wollen Sie das Item wirklich löschen?"))
     {
         element.parentElement.submit();
     }
@@ -17,7 +17,7 @@ function deleteSportgruppe(element) {
 }
 function deleteSportler(element) {
 
-    if(window.confirm("Wollen Sie das Item wirklich löschen"))
+    if(window.confirm("Wollen Sie das Item wirklich löschen?"))
     {
         element.parentElement.submit();
     }

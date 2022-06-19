@@ -88,6 +88,6 @@ def deleteSportler():
     else:
         print("Fatal Error")
 
-    flash(f"sportler with id {sportler_code_to_delete} has been deleted")
+    flash(f"Der Sportler mit der ID {sportler_code_to_delete} wurde gelöscht! :)")
 
     return redirect("/sportler")
